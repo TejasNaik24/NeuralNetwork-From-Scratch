@@ -34,6 +34,7 @@ The neural network follows this structure:
 
 #### Prerequisites
 • Python 3.0x
+
 • Numpy 1.7.0 or higher
 
 ## Example XOR Inputs and Expected Outputs
