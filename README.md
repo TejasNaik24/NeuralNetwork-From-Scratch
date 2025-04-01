@@ -18,8 +18,8 @@ The neural network follows this structure:
 
 #### Forward Propagation
 
-1. Compute the **weighted sum** for the hidden layer:
-2. Apply the **sigmoid activation function**:
+1. Compute the **weighted sum** for the hidden layer: $ z = Wx + b $
+2. Apply the **sigmoid activation function**: $ \sigma(z) = \frac{1}{1 + e^{-z}} $
 3. Compute the **weighted sum** for the output layer.
 4. Apply the **sigmoid activation function** to obtain the final output.
 
