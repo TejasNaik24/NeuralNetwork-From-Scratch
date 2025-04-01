@@ -9,9 +9,7 @@ This project implements a simple feedforward neural network from scratch using *
 The neural network follows this structure:
 
 • **Input Layer**: 2 neurons (for XOR input values)
-
 • **Hidden Layer**: 2 neurons with a sigmoid activation function
-
 • **Output Layer**: 1 neuron with a sigmoid activation function
 
 ## Implementation Details
@@ -25,9 +23,7 @@ The neural network follows this structure:
 
 ## Backpropagation (Conceptual Explanation) 
 • Define a **loss function** (Mean Squared Error or Binary Cross-Entropy).
-
 • Compute **gradients** using the chain rule.
-
 • Explain how **gradient descent** would update **weights**, even though no training is performed
 
 ## Running the Code
