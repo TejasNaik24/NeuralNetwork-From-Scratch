@@ -47,4 +47,4 @@ Input 1 | Input 2 | Expected Output |
 
 ### Contact
 
-For any questions, reach out via GitHub or my email <ins>naik.tejas11@gmail.com</ins>
+For any questions, reach out via GitHub or my email naik.tejas11@gmail.com
