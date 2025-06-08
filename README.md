@@ -41,7 +41,7 @@ The neural network follows this structure:
 
 Input 1 | Input 2 | Expected Output |
 |:-----:|:-------:|:---------------:|
-|0|1|1|
+|0|0|0|
 |0|1|1|
 |1|0|1|
 |1|1|0|
