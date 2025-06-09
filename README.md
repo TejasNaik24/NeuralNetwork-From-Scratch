@@ -155,6 +155,7 @@ Prediction for [0, 1] is: 1
 
 
 
+![NN](https://github.com/user-attachments/assets/839510f1-377a-4c6f-8656-c205aed7a217)
 
 
 
