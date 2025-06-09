@@ -51,7 +51,7 @@ $$L(y, ŷ) = -(y * log(ŷ) + (1 - y) * log(1 - ŷ))$$
 - $$\(ŷ\)$$ (also written as $$\(A2\)$$ is the predicted output
 - The loss is averaged across all samples
 
-This function is ideal for binary classification tasks like XOR. It penalizes confident wrong answers heavily, encouraging accurate predictions.
+This function is ideal for binary classification tasks like XOR. It penalizes confident wrong answers heavily, encouraging accurate predictions. This is used after Forward Propagation to find the loss after the weights and biases are calculated.
 
 
 #### Backpropagation:
