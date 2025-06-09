@@ -27,6 +27,10 @@ The neural network follows this structure:
 
 • **Output Layer**: 1 neuron with a sigmoid activation function
 
+Below is a visual representation of the neural network architecture used in this project:
+
+![NN](https://github.com/user-attachments/assets/fcb95506-96a7-488a-a638-13d838c08c64)
+
 ## Implementation Details
 
 #### Forward Propagation
@@ -152,10 +156,3 @@ Prediction for [0, 1] is: 1
    ```
 5. Run the Python script to start the XOR prediction model.
 6. The model will prompt you to enter your own XOR inputs (either 0 or 1). You can continue to test the model's predictions by providing inputs and receiving output until you type "exit" to quit.
-
-
-
-![NN](https://github.com/user-attachments/assets/839510f1-377a-4c6f-8656-c205aed7a217)
-
-
-
