@@ -29,7 +29,7 @@ The neural network follows this structure:
 
 Below is a visual representation of the neural network architecture used in this project:
 
-![NN](https://github.com/user-attachments/assets/fcb95506-96a7-488a-a638-13d838c08c64)
+![NN](https://github.com/user-attachments/assets/1f57a02b-484e-41c6-b54c-b45dbe64302b)
 
 ## Implementation Details
 
