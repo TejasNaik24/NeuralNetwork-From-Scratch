@@ -43,10 +43,21 @@ The neural network follows this structure:
 4. Apply the **sigmoid activation function** to obtain the final output: 
    $$a_2 = \frac{1}{1 + e^{-z_2}}$$
 
-#### Backpropagation
+#### Loss Function: Binary Cross-Entropy
+$$L(y, ŷ) = -(y * log(ŷ) + (1 - y) * log(1 - ŷ))$$
+
+   Where:
+- $$\(y\)$$ is the true label (0 or 1)
+- $$\(ŷ\)$$ (also written as $$\(A2\)$$ is the predicted output
+- The loss is averaged across all samples
+
+This function is ideal for binary classification tasks like XOR. It penalizes confident wrong answers heavily, encouraging accurate predictions.
+
+
+#### Backpropagation:
 
 1. **Calculate the error at the output layer:**
-   The error at the output layer is the difference between the actual output (`y`) and the predicted output (`A2`):
+   The error at the output layer is the difference between the actual output $$\(y\)$$ and the predicted output $$\(A2\)$$:
 
    $$\text{error\_output} = y - A2 $$
 
