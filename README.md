@@ -4,7 +4,7 @@
 
 This project implements a simple feedforward neural network from scratch using **Python** and **Numpy**. The neural network is trained on the XOR dataset to learn how to predict the XOR function for binary inputs (0 and 1). This project aims to demonstrate my understanding of fundamental neural network operations, including forward propagation, backpropagation, and training, without using deep learning libraries like **TensorFlow** or **PyTorch**.
 
-## Check out the demo [here](https://drive.google.com/file/d/1YpVzB6VQXRyj1WNqQmXgUmp_3Y6uaZax/view?usp=sharing)!
+### Check out the demo [here](https://drive.google.com/file/d/1YpVzB6VQXRyj1WNqQmXgUmp_3Y6uaZax/view?usp=sharing)!
 
 ## Example XOR Inputs and Expected Outputs
 
