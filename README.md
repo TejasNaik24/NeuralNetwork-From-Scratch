@@ -6,7 +6,7 @@ This project implements a simple feedforward neural network from scratch using *
 
 The project is written in **Object-Oriented Programming (OOP)** to ensure clean, modular, and reusable code. The network utilizes the **sigmoid activation function** for both the hidden and output layers, and it uses **binary cross-entropy** as the loss function during training.
 
-### Check out the demo [here](https://drive.google.com/file/d/1YpVzB6VQXRyj1WNqQmXgUmp_3Y6uaZax/view?usp=sharing)!
+## Check out the demo [here](https://drive.google.com/file/d/1YpVzB6VQXRyj1WNqQmXgUmp_3Y6uaZax/view?usp=sharing)!
 
 ## Example XOR Inputs and Expected Outputs
 
