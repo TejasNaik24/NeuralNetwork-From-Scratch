@@ -71,3 +71,9 @@ class NeuralNetwork():
     def predict(self, X):
        output = self.forwardProp(X)
        return (output > 0.5).astype(int)
+    
+    # In Neural_Network.py
+    def predict_with_confidence(self, X):
+        prob = self.predict(X)[0][0]
+        prediction = 1 if prob >= 0.5 else 0
+        return prediction, prob

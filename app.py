@@ -97,9 +97,9 @@ if st.session_state.testing:
         col_left, col_center, col_right = st.columns([1, 0.4, 1])
         if col_center.button("Run NN", key="run_nn_button"):
             user_input = np.array([[input1, input2]])
-            prediction_prob = NN.predict(user_input)[0][0]
-            prediction = 1 if prediction_prob >= 0.5 else 0
-            st.success(f"Prediction for [{input1}, {input2}] is: {prediction}")
+            prediction, confidence = NN.predict_with_confidence(user_input)
+            st.success(f"Prediction for [{input1}, {input2}] is: {prediction} ({confidence*100:.2f}% confident)")
+
 
     with tab2:
         col_chart, col_log = st.columns([2, 1])
