@@ -1,25 +1,5 @@
 import numpy as np
 
-# Defining the network's architecture
-input_size = 2
-hidden_size = 3
-output_size = 1
-
-#Number of times to run training loop
-epochs = 10000
-
-#learning rate for backprop
-learning_rate = 0.1
-
-#Defining training data
-X = np.array([[0, 0],
-              [0, 1],
-              [1, 0],
-              [1, 1]]) #shape (2, 4)
-
-#outputs to training data
-y = np.array([[0], [1], [1], [0]]) #shape (1, 4)
-
 # Sigmoid Activation function
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
@@ -84,52 +64,10 @@ class NeuralNetwork():
               # Backpropagation
             self.backwardProp(X, y)
 
-             # Print loss every 1000 epochs
-            if epoch % 1000 == 0:
-                print(f"Epoch {epoch}, Loss: {loss:.6f}")
+            yield epoch, loss
 
 
     #making the predictions
     def predict(self, X):
        output = self.forwardProp(X)
        return (output > 0.5).astype(int)
-    
-#creating NeuralNetwork object
-NN = NeuralNetwork(input_size, hidden_size, output_size, learning_rate)
-
-#training the model
-NN.train(X, y, epochs)
-
-#printing the predicted ouputs from user inputs
-while True:
-    print("\nEnter 'exit' at any time to quit.")
-    
-    # Getting the first binary input
-    x1_input = input("Enter first binary number (0 or 1): ").strip().lower()
-    if x1_input == 'exit':
-        break
-
-    # Getting the second binary input
-    x2_input = input("Enter second binary number (0 or 1): ").strip().lower()
-    if x2_input == 'exit':
-        break
-
-    try:
-        # Converting the inputs to integers
-        x1 = int(x1_input)
-        x2 = int(x2_input)
-
-        # Ensuring the inputs are valid binary values
-        if x1 not in [0, 1] or x2 not in [0, 1]:
-            print("Only 0 or 1 are valid inputs for XOR.\n")
-            continue
-
-        # converting inputs to numpy array and running through model
-        user_input = np.array([[x1, x2]])
-        prediction = NN.predict(user_input)
-
-        # Displaying the prediction result
-        print(f"Prediction for [{x1}, {x2}] is: {prediction[0][0]}")
-        
-    except ValueError:
-        print("Invalid input. Please enter numbers only or type 'exit' to quit.\n")
