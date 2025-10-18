@@ -6,7 +6,19 @@ This project implements a simple feedforward neural network from scratch using *
 
 The project is written in **Object-Oriented Programming (OOP)** to ensure clean, modular, and reusable code. The network utilizes the **sigmoid activation function** for both the hidden and output layers, and it uses **binary cross-entropy** as the loss function during training.
 
-## Check out the demo [here](https://drive.google.com/file/d/1YpVzB6VQXRyj1WNqQmXgUmp_3Y6uaZax/view?usp=sharing)!
+## Check out the website [here](https://neural-network-from-scratch.streamlit.app/)!
+
+## Streamlit Web Interface
+
+The neural network is also deployed with **Streamlit**, providing a clean and interactive UI to visualize the model’s training and testing in real time.
+
+The web app allows users to:
+- View the model architecture and training progress.
+- Input custom XOR values (0 or 1) using intuitive number selectors.
+- Instantly test the trained model and see its prediction and confidence.
+- Seamlessly switch between the **Training Info** and **Testing Mode** tabs.
+
+This makes it easy to both explore how the neural network learns and experiment with real XOR inputs without running the code locally.
 
 ## Example XOR Inputs and Expected Outputs
 
@@ -59,60 +71,59 @@ This function is ideal for binary classification tasks like XOR. It penalizes co
 
 
 #### Backpropagation:
-
 1. **Calculate the error at the output layer:**
-   The error at the output layer is the difference between the actual output $$\(y\)$$ and the predicted output $$\(A2\)$$:
-
-   $$\text{error\_output} = y - A2 $$
+   The error at the output layer is the difference between the actual output $y$ and the predicted output $A2$:
+   
+   $$\mathrm{error\_output} = y - A2$$
 
 2. **Calculate the derivative of the sigmoid activation function at the output layer:**
-   The derivative of the sigmoid function at the output is used to determine how much the output layer’s weights should be adjusted:
+   The derivative of the sigmoid function at the output is used to determine how much the output layer's weights should be adjusted:
    
-   $$dZ2 = \text{error\_output} \times \sigma'(A2)$$
+   $$dZ2 = \mathrm{error\_output} \times \sigma'(A2)$$
    
-   Where $$\( \sigma'(A2) \)$$ is the derivative of the sigmoid function with respect to the output:
+   Where $\sigma'(A2)$ is the derivative of the sigmoid function with respect to the output:
    
    $$\sigma'(A2) = A2 \times (1 - A2)$$
 
 3. **Calculate the error at the hidden layer:**
-   Using the error from the output layer, the error is propagated backward to the hidden layer. This is done by calculating the derivative of the hidden layer’s activation function and the weights connecting the hidden layer to the output layer:
+   Using the error from the output layer, the error is propagated backward to the hidden layer. This is done by calculating the derivative of the hidden layer's activation function and the weights connecting the hidden layer to the output layer:
    
-   $$\text{error\_hidden} = dZ2 \cdot W2^T$$
-
-   Where $$\( W2^T \)$$ is the transpose of the weight matrix between the hidden layer and the output layer. 
+   $$\mathrm{error\_hidden} = dZ2 \cdot W2^T$$
+   
+   Where $W2^T$ is the transpose of the weight matrix between the hidden layer and the output layer.
 
 4. **Calculate the derivative of the sigmoid activation function at the hidden layer:**
    The error at the hidden layer is then multiplied by the derivative of the sigmoid function at the hidden layer:
    
-   $$dZ1 = \text{error\_hidden} \times \sigma'(A1)$$
-
-   Where $$\( \sigma'(A1) \)$$ is the derivative of the sigmoid function with respect to the hidden layer’s activations:
+   $$dZ1 = \mathrm{error\_hidden} \times \sigma'(A1)$$
+   
+   Where $\sigma'(A1)$ is the derivative of the sigmoid function with respect to the hidden layer's activations:
    
    $$\sigma'(A1) = A1 \times (1 - A1)$$
 
 5. **Update weights and biases:**
-   Once we have the gradients for the weights and biases at both the hidden and output layers, we update the weights and biases using **gradient descent**. 
-
+   Once we have the gradients for the weights and biases at both the hidden and output layers, we update the weights and biases using **gradient descent**.
+   
    - For the output layer:
    
    $$W2 = W2 + \eta \cdot A1^T \cdot dZ2$$
    
-   $$b2 = b2 + \eta \cdot \sum{dZ2}$$
+   $$b2 = b2 + \eta \cdot \sum dZ2$$
    
-   Where $$\eta$$ is the learning rate.
-
+   Where $\eta$ is the learning rate.
+   
    - For the hidden layer:
    
    $$W1 = W1 + \eta \cdot X^T \cdot dZ1$$
    
-   $$b1 = b1 + \eta \cdot \sum{dZ1}$$
+   $$b1 = b1 + \eta \cdot \sum dZ1$$
 
 Where:
-- $$\( W1, W2 \)$$ are the weight matrices between the layers.
-- $$\( b1, b2 \)$$ are the bias vectors.
-- $$\( X \)$$ is the input matrix.
-- $$\( A1, A2 \)$$ are the activations of the hidden and output layers, respectively.
-- $$\( \eta \)$$ is the learning rate.
+- $W1, W2$ are the weight matrices between the layers.
+- $b1, b2$ are the bias vectors.
+- $X$ is the input matrix.
+- $A1, A2$ are the activations of the hidden and output layers, respectively.
+- $\eta$ is the learning rate.
 
 In essence, backpropagation allows the network to minimize the error by updating the weights and biases based on the gradients calculated from the loss function.
 
@@ -124,35 +135,46 @@ In essence, backpropagation allows the network to minimize the error by updating
 - **Activation Function**: Sigmoid for both hidden and output layers.
 - **Optimizer**: Gradient Descent via Backpropagation.
 
-## Making predictions
 
-After training, the model allows the user to input custom XOR values (0 or 1) and run them through the trained model. Based on the XOR inputs, the model will predict the output and display what it thinks the result is.
-
-### Example Usage:
-
-```bash
-Enter 'exit' at any time to quit.
-Enter first binary number (0 or 1): 1
-Enter second binary number (0 or 1): 0
-Prediction for [1, 0] is: 1
-
-Enter 'exit' at any time to quit.
-Enter first binary number (0 or 1): 0
-Enter second binary number (0 or 1): 1
-Prediction for [0, 1] is: 1
-```
 #### To Run the Code:
 
-1. Clone the repository.
-2. Install the required dependencies with:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/<your-username>/Neural-Network-From-Scratch.git  
+   cd Neural-Network-From-Scratch
+   ```
 
-   Windows/Linux:
+3. **(Optional but recommended) Create a virtual environment:**
    ```bash
-   pip install numpy
-   ```
-   MacOS:
+   python -m venv venv
+   ```  
+   Then activate it:
+
+   - **Windows:**
+     ```bash  
+     venv\Scripts\activate
+     ```  
+   - **macOS/Linux:**
+     ```bash
+     source venv/bin/activate
+     ```
+
+4. **Install the required dependencies:**
    ```bash
-   pip3 install numpy
+   pip install -r requirements.txt
    ```
-5. Run the Python script to start the XOR prediction model.
-6. The model will prompt you to enter your own XOR inputs (either 0 or 1). You can continue to test the model's predictions by providing inputs and receiving output until you type "exit" to quit.
+
+5. **Run the Streamlit app:**
+   ```bash
+   streamlit run app.py
+   ```
+
+6. Once launched, Streamlit will automatically open in your browser at:
+  
+   http://localhost:8501
+
+8. From the web interface, you can:
+   - Click **Train** to start the neural network training process and visualize the loss graph in real time.  
+   - Click **Test** to switch to the testing tab, where you can input custom XOR values (0 or 1).  
+   - Click **Run NN** to see the predicted output and confidence directly on the page.
+
