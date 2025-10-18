@@ -5,10 +5,12 @@ import time
 import pandas as pd
 from Neural_Network import NeuralNetwork
 
-st.set_page_config(page_title="Neural Network from Scratch")
+st.set_page_config(
+    page_title="Neural Network from Scratch",
+    page_icon="static/NN.png",
+)
 st.title("Neural Network from Scratch")
 
-# --- Session state ---
 if "training" not in st.session_state:
     st.session_state.training = False
 if "trained" not in st.session_state:
@@ -22,7 +24,6 @@ if "losses_list" not in st.session_state:
 if "log_lines" not in st.session_state:
     st.session_state.log_lines = []
 
-# --- Training data and model ---
 input_size, hidden_size, output_size = 2, 3, 1
 epochs, learning_rate = 10000, 0.1
 X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
@@ -32,7 +33,6 @@ NN = NeuralNetwork(input_size, hidden_size, output_size, learning_rate)
 image_path = os.path.join(os.getcwd(), "static", "NN.png")
 image_placeholder = st.empty()
 
-# --- BEFORE TRAINING ---
 if not st.session_state.training and not st.session_state.trained:
     image_placeholder.image(image_path, caption="Neural Network Architecture")
     col1, col2, col3 = st.columns([1, 0.4, 1])
@@ -40,12 +40,9 @@ if not st.session_state.training and not st.session_state.trained:
         st.session_state.training = True
         st.rerun()
 
-# --- DURING OR AFTER TRAINING ---
 if st.session_state.training or st.session_state.trained:
-    # Hide image during training
     image_placeholder.empty()
     
-    # Columns for chart/log side by side
     col_chart, col_log = st.columns([2, 1])
     
     if st.session_state.training:
@@ -53,7 +50,6 @@ if st.session_state.training or st.session_state.trained:
         loss_placeholder = col_chart.empty()
         log_placeholder = col_log.empty()
 
-        # Live training loop
         for epoch, loss in NN.train(X, y, epochs):
             if epoch % 100 == 0:
                 st.session_state.epochs_list.append(epoch)
@@ -69,10 +65,8 @@ if st.session_state.training or st.session_state.trained:
         st.session_state.training = False
         st.session_state.trained = True
 
-        # Show final loss
         st.success(f"Training complete! Final Loss: {loss:.6f}")
 
-    # --- AFTER TRAINING: Show Test Button BELOW CHARTS ---
     if st.session_state.trained and not st.session_state.testing:
         col1, col2, col3 = st.columns([1, 0.4, 1])
         test_placeholder = col2.empty()
@@ -80,20 +74,16 @@ if st.session_state.training or st.session_state.trained:
             st.session_state.testing = True
             test_placeholder.empty()
 
-# --- TABS ONLY AFTER CLICKING TEST ---
 if st.session_state.testing:
-    # Force Testing Mode tab first by swapping order
     tab1, tab2 = st.tabs(["Testing Mode", "Training Info"])
     with tab1:
         st.subheader("Testing Mode")
         st.image(image_path, caption="Neural Network Architecture")
 
-        # Inputs side by side
         col1, col2 = st.columns(2)
         input1 = col1.number_input("Input 1", min_value=0, max_value=1, step=1)
         input2 = col2.number_input("Input 2", min_value=0, max_value=1, step=1)
 
-        # Centered Run NN button
         col_left, col_center, col_right = st.columns([1, 0.4, 1])
         if col_center.button("Run NN", key="run_nn_button"):
             user_input = np.array([[input1, input2]])
@@ -103,11 +93,9 @@ if st.session_state.testing:
 
     with tab2:
         col_chart, col_log = st.columns([2, 1])
-        # Training chart
         if st.session_state.epochs_list and st.session_state.losses_list:
             df = pd.DataFrame({"Epoch": st.session_state.epochs_list,
                                "Loss": st.session_state.losses_list}).set_index("Epoch")
             col_chart.line_chart(df, x_label="Epoch", y_label="Loss")
-        # Training log
         if st.session_state.log_lines:
             col_log.text("\n".join(st.session_state.log_lines))
