@@ -64,7 +64,7 @@ if st.session_state.training or st.session_state.trained:
             if epoch % 1000 == 0 or epoch == epochs-1:
                 st.session_state.log_lines.append(f"Epoch {epoch}, Loss: {loss:.6f}")
                 log_placeholder.text("\n".join(st.session_state.log_lines))
-            time.sleep(0.001)
+            #time.sleep(0.001)
 
         st.session_state.training = False
         st.session_state.trained = True
@@ -87,7 +87,19 @@ if st.session_state.testing:
     with tab1:
         st.subheader("Testing Mode")
         st.image(image_path, caption="Neural Network Architecture")
-        # Add input/testing widgets here
+
+        # Inputs side by side
+        col1, col2 = st.columns(2)
+        input1 = col1.number_input("Input 1", min_value=0, max_value=1, step=1)
+        input2 = col2.number_input("Input 2", min_value=0, max_value=1, step=1)
+
+        # Centered Run NN button
+        col_left, col_center, col_right = st.columns([1, 0.4, 1])
+        if col_center.button("Run NN", key="run_nn_button"):
+            user_input = np.array([[input1, input2]])
+            prediction_prob = NN.predict(user_input)[0][0]
+            prediction = 1 if prediction_prob >= 0.5 else 0
+            st.success(f"Prediction for [{input1}, {input2}] is: {prediction}")
 
     with tab2:
         col_chart, col_log = st.columns([2, 1])
