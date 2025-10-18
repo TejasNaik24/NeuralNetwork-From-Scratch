@@ -2,9 +2,11 @@
 
 ## Overview
 
-This project implements a simple feedforward neural network from scratch using **Python** and **Numpy**. The neural network is trained on the XOR dataset to learn how to predict the XOR function for binary inputs (0 and 1). This project aims to demonstrate my understanding of fundamental neural network operations, including forward propagation, backpropagation, and training, without using deep learning libraries like **TensorFlow** or **PyTorch**.
+This project implements a simple feedforward neural network from scratch using Python and NumPy, and it is deployed on **Streamlit** to provide an interactive web interface for testing predictions. The neural network is trained on the XOR dataset to learn how to predict the XOR function for binary inputs (0 and 1). 
 
-The project is written in **Object-Oriented Programming (OOP)** to ensure clean, modular, and reusable code. The network utilizes the **sigmoid activation function** for both the hidden and output layers, and it uses **binary cross-entropy** as the loss function during training.
+This project aims to demonstrate my understanding of fundamental neural network operations, including forward propagation, backpropagation, and training, without using deep learning libraries like TensorFlow or PyTorch.
+
+The project is written in Object-Oriented Programming (OOP) to ensure clean, modular, and reusable code. The network utilizes the sigmoid activation function for both the hidden and output layers and employs binary cross-entropy as the loss function during training.
 
 ## Check out the website [here](https://neural-network-from-scratch.streamlit.app/)!
 
