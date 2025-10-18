@@ -5,9 +5,11 @@ import time
 import pandas as pd
 from Neural_Network import NeuralNetwork
 
+icon_path = os.path.join("static", "NN.png")
+
 st.set_page_config(
     page_title="Neural Network from Scratch",
-    page_icon="static/NN.png",
+    page_icon=icon_path,
 )
 st.title("Neural Network from Scratch")
 
